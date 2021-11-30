@@ -1,7 +1,9 @@
 package io.github.diegomardu.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
+
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
@@ -18,12 +20,12 @@ public class Cliente {
     private Integer id;
 
     @Column(nullable = false, length = 150)
-    @NotEmpty(message = "{campo.nome.obrigatorio}")
+    @NotEmpty(message = "Campo nome é obrigatório")
     private String nome;
 
     @Column(nullable = false, length = 11)
-    @NotNull(message = "{campo.cpf.obrigatorio}")
-    @CPF(message = "{campo.cpf.invalido}")
+    @NotNull(message = "Campo CPF é obrigatório")
+    @CPF(message = "Campo cpf invalido")
     private String cpf;
 
     @Column(name = "data_cadastro", updatable = false)
@@ -34,5 +36,11 @@ public class Cliente {
     public void prePersist(){
         setDataCadastro(LocalDate.now());
     }
+
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+    
+    
 
 }

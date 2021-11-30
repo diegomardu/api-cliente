@@ -1,17 +1,20 @@
 package io.github.diegomardu.exception;
 
 
-import lombok.Getter;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class ApiErrors {
 
-    @Getter
-    private List<String> errors;
+    private List<String> errors;   
+    
 
-    public ApiErrors(List<String> errors){
+    public List<String> getErrors() {
+		return errors;
+	}
+
+	public ApiErrors(List<String> errors){
         this.errors = errors;
     }
 

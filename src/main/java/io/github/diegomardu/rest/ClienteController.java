@@ -7,10 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/clientes")
+@CrossOrigin("http://localhost:4200")
 public class ClienteController {
 
     @Autowired
@@ -50,5 +53,10 @@ public class ClienteController {
                     return clienteRepository.save(clienteDadosAtualizados);
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Cliente não encontrado"));
+    }
+    
+    @GetMapping
+    public List<Cliente> listar(){
+    	return clienteRepository.findAll();
     }
 }
