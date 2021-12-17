@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.github.diegomardu.model.entity.Usuario;
 import io.github.diegomardu.model.repository.UsuarioRepository;
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/usuarios")
